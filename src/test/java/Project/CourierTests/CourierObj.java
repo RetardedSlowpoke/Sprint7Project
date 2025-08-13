@@ -15,7 +15,6 @@ public class CourierObj {
         }
 
         public static CourierObj random() {
-            var rnd = LocalDateTime.now().getNano();
             return new CourierObj("login_" + ThreadLocalRandom.current().nextInt(10000, 99999), "pass1234", "Ivanov");
         }
 
