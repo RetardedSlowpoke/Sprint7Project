@@ -12,7 +12,6 @@ public class Credentials {
     public static Credentials from(CourierObj courier) {
         return new Credentials(courier.getLogin(), courier.getPassword());
     }
-
     public String getLogin() {
         return login;
     }
@@ -20,4 +19,5 @@ public class Credentials {
     public String getPassword() {
         return password;
     }
+
 }

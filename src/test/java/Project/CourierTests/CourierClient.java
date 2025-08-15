@@ -23,7 +23,7 @@ public class CourierClient extends Client {
                 .then();
     }
 
-    @Step("Удаляем курьера {id}")
+    @Step("Удаляем курьера")
     public ValidatableResponse delete(int id) {
         return spec()
                 .when()

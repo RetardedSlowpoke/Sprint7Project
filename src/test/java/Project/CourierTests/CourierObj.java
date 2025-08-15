@@ -1,17 +1,14 @@
 package Project.CourierTests;
-import java.time.LocalDateTime;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class CourierObj {
 
         private String login;
         private String password;
-        private String firstName;
 
         public CourierObj(String login, String password, String firstName) {
             this.login = login;
             this.password = password;
-            this.firstName = firstName;
         }
 
         public static CourierObj random() {
@@ -26,8 +23,5 @@ public class CourierObj {
             return password;
         }
 
-        public String getFirstName() {
-            return firstName;
-        }
     }
 

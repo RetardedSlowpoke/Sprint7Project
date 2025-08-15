@@ -24,15 +24,10 @@ class CourierCreateTests {
         courierId = null;
     }
 
-    @AfterEach
-    void tearDown() {
-        if (courierId != null) {
-            client.delete(courierId);
-        }
-    }
+
     //Кажется пункты в задании дублируются, а ответы мы и так проверяем.
     @Test
-    @DisplayName("Курьера можно создать (201, ok:true)") //Пункты "курьера можно создать; успешный запрос возвращает ok: true;"
+    @DisplayName("Курьера можно создать (201)") //Пункты "курьера можно создать; успешный запрос возвращает ok: true;"
     @Description("POST /courier возвращает 201 и ok:true; затем логинимся, получаем id и удаляем курьера")
     void courierCanBeCreated() {
 
@@ -63,7 +58,7 @@ class CourierCreateTests {
                 .extract().path("id");
 
         client.createCourier(courier)
-                .statusCode(409).body("message",equalTo("Этот логин уже используется"));
+                .statusCode(409).body("message",equalTo("Этот логин уже используется. Попробуйте другой."));
     }
     static Stream<CourierObj> courierWithMissingField() {
         int rndLogin = ThreadLocalRandom.current().nextInt(10000, 99999);
@@ -73,7 +68,7 @@ class CourierCreateTests {
         );
     }
 
-    @ParameterizedTest(name = "Отсутствует обязательное поле: {0}")
+    @ParameterizedTest
     @MethodSource("courierWithMissingField")
     @DisplayName("Создание курьера без обязательного поля (400)")
     @Description("Проверка, что при отсутствии обязательного поля API возвращает 400 и сообщение об ошибке")
@@ -83,6 +78,12 @@ class CourierCreateTests {
                 .body("message",equalTo("Недостаточно данных для создания учетной записи"));
     }
 
+    @AfterEach
+    void tearDown() {
+        if (courierId != null) {
+            client.delete(courierId);
+        }
+    }
 }
 
 

@@ -28,16 +28,10 @@ public class CourierLoginTests {
         courierId = null;
     }
 
-    @AfterEach
-    void tearDown() {
-        if (courierId != null) {
-            client.delete(courierId);
-        }
-    }
 
     @Test
     @DisplayName("Курьер может залогиниться")
-    @Description("POST /courier/login возвращает 200 и id, после удаляем курьера")
+    @Description("Проверяем возможность создать курьера. Потом удаляем.")
 
 void courierCanLogin(){ //Пункты "может авторизоваться", "успешный запрос возвращает id" (мы же используем его для удаления всё же).
 
@@ -63,7 +57,7 @@ void courierCanLogin(){ //Пункты "может авторизоваться"
         @ParameterizedTest
         @MethodSource("missingFields")
         @DisplayName("Авторизация: отсутствие обязательного поля возвращает 400") //Запрос без пароля возвращает 504 вместо 400. Очевидно, баг, проверил в Postman руками - всё тоже самое.
-        @Description("Проверяем, что при отсутствии login или password ручка /courier/login вернёт 400 и сообщение об ошибке")
+        @Description("При отсутствии логина или пароля возвращается 400 и сообщение об ошибке")
         void courierCannotLoginWithoutAllFieldsFilled(Credentials creds) {
             client.logIn(creds)
                     .statusCode(400)
@@ -85,6 +79,13 @@ void courierCanLogin(){ //Пункты "может авторизоваться"
         loginResponse
                 .statusCode(404)
                 .body("message", equalTo("Учетная запись не найдена"));
+    }
+
+    @AfterEach
+    void tearDown() {
+        if (courierId != null) {
+            client.delete(courierId);
+        }
     }
     }
 
