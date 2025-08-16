@@ -1,4 +1,4 @@
-package Project.CourierTests;
+package project.objects;
 
 public class Credentials {
     private final String login;

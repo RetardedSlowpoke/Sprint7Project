@@ -1,7 +1,6 @@
-package Project.CourierTests;
+package project.couriertests;
 
 import io.qameta.allure.Description;
-import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,6 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import project.objects.CourierObj;
+import project.objects.Credentials;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;

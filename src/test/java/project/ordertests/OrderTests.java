@@ -1,10 +1,11 @@
-package Project.OrderTests;
+package project.ordertests;
 
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import project.objects.OrderObj;
 
 import java.time.LocalDate;
 import java.util.List;

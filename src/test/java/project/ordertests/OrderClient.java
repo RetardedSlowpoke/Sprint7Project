@@ -1,8 +1,9 @@
-package Project.OrderTests;
+package project.ordertests;
 
-import Project.Client;
+import project.Client;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
+import project.objects.OrderObj;
 
 public class OrderClient extends Client {
 

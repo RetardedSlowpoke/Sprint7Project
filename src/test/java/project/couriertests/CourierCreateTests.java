@@ -1,10 +1,12 @@
-package Project.CourierTests;
+package project.couriertests;
 
 import io.qameta.allure.Description;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import project.objects.CourierObj;
+import project.objects.Credentials;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;

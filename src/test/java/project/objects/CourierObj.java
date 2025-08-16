@@ -1,5 +1,5 @@
-package Project.CourierTests;
-import java.util.concurrent.ThreadLocalRandom;
+package project.objects;
+import com.github.javafaker.Faker;
 
 public class CourierObj {
 
@@ -12,7 +12,11 @@ public class CourierObj {
         }
 
         public static CourierObj random() {
-            return new CourierObj("login_" + ThreadLocalRandom.current().nextInt(10000, 99999), "pass1234", "Ivanov");
+            Faker faker = new Faker();
+            return new CourierObj(
+                    faker.name().username(),
+                    faker.internet().password(),
+                    faker.name().firstName());
         }
 
         public String getLogin() {

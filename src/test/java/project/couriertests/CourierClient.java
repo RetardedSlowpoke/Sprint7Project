@@ -1,8 +1,11 @@
-package Project.CourierTests;
+package project.couriertests;
 
-import Project.Client;
+import project.Client;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
+import project.objects.CourierObj;
+import project.objects.Credentials;
+
 public class CourierClient extends Client {
 
     @Step("Создаём курьера")
